@@ -16,8 +16,8 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        /* below is to remove a row and shift rows up if duplicate rows are found (based on what first cell of each row contains); prints removed rows (based on index starting at 1 not 0)
-        String fileName = "/Users/ciright/Documents/ZendeskAppsCopy.xlsx";
+        // below is to remove a row and shift rows up if duplicate rows are found (based on what first cell of each row contains); prints removed rows (based on index starting at 1 not 0)
+        String fileName = "/Example/Excel/File/Example.xlsx";
         InputStream input = new FileInputStream(fileName);
 
         XSSFWorkbook wb = new XSSFWorkbook(input);
@@ -42,7 +42,7 @@ public class Main {
                             removedRows.add(j);
                             //sheet.shiftRows(j + 1, sheet.getLastRowNum(), -1); //uncomment this if there are no images (images would cause this to be wack otherwise)
                             FileOutputStream fileOut = null;
-                            fileOut = new FileOutputStream("/Users/ciright/Documents/ZendeskAppsCopy.xlsx");
+                            fileOut = new FileOutputStream("/Example/Excel/File/Example.xlsx");
                             wb.write(fileOut);
                             fileOut.close();
                         }
@@ -53,16 +53,15 @@ public class Main {
         for(Integer rowNumber : removedRows) {
             System.out.print((rowNumber + 1) + " ");
         }
-        */
 
-        /* below is used to create an Excel spreadsheet and upload images from the computer to specific cells within that spreadsheet
+        // below is used to create an Excel spreadsheet and upload images from the computer to specific cells within that spreadsheet
         try {
 
             Workbook wb = new XSSFWorkbook();
-            Sheet sheet = wb.createSheet("ZendeskAppIcons");
+            Sheet sheet = wb.createSheet("ExampleSheetName");
             for(int i = 1; i <= 660; i++) {
                 //FileInputStream obtains input bytes from the image file
-                InputStream inputStream = new FileInputStream("/Users/ciright/Downloads/logo " + i + ".png");
+                InputStream inputStream = new FileInputStream("/Example/Logo/Path/logo " + i + ".png");
                 //Get the contents of an InputStream as a byte[].
                 byte[] bytes = IOUtils.toByteArray(inputStream);
                 //Adds a picture to the workbook
@@ -102,7 +101,7 @@ public class Main {
 
                 //Write to Excel file
                 FileOutputStream fileOut = null;
-                fileOut = new FileOutputStream("/Users/ciright/Documents/ZendeskAppIcons.xlsx");
+                fileOut = new FileOutputStream("/Example/Excel/File/Example.xlsx");
                 wb.write(fileOut);
                 fileOut.close();
             }
@@ -110,6 +109,5 @@ public class Main {
         }
         catch (IOException ioex) {
         }
-        */
     }
 }
